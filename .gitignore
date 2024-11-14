@@ -1,0 +1,4 @@
+# lo que nos dice el git ignore es que repositorios o archivos no subir a github
+node_modules
+.env
+

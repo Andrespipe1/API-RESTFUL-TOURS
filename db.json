@@ -1,0 +1,13 @@
+{
+    "tours":[
+        {
+            "id":1,
+            "nombre":"Baños"
+        },
+        {
+            "id":2,
+            "nombre":"Baños_de_agua"
+        }
+    ],
+    "users":[]
+}

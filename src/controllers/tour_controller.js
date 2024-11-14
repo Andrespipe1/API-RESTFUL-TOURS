@@ -1,5 +1,5 @@
 import tourModel from '../models/tours.js'
-
+import {v4 as uuidv4} from 'uuid';
 const getAlltourController = async (req,res) => {
   try {
     const  tours = await tourModel.getAllToursModel()
@@ -9,18 +9,44 @@ const getAlltourController = async (req,res) => {
   }
 }
 
-const createTourController = (req,res)=>{
+const createTourController = async (req,res)=>{
   const newTourData ={
-    id:"3434535sffgg",
+    id:uuidv4(),
     ...req.body
   }
   try {
-    const tour = tourModel.createTourModel(newTourData)
-    res.status(201).json(tour)
+    const tour = await tourModel.createTourModel(newTourData)
+    res.status(200).json(tour)
   } catch (error) {
     res.status(500).json(error)
   }
 }
+
+const updateTourController = async (req,res) =>{
+  const{id}= req.params
+  try {
+    const tour = await tourModel.updateTourModel(id,req.body)
+    res.status(200).json(tour)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+
+}
+
+const deleteTourController = async (req,res) => {
+  const {id} = req.params
+  try {
+    await tourModel.deleteTourModel(id)
+    res.status(200).json({msg:"Tour eliminado correctamente"})
+  } catch (error) {
+    res.status(500).json(error)
+  }
+  
+}
+
 export {
-    getAlltourController
+    getAlltourController,
+    createTourController,
+    updateTourController,
+    deleteTourController
 }

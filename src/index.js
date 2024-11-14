@@ -1,7 +1,6 @@
-import app from './server.js'
+import app from "./server.js"
+
 
 
 app.listen(3000,()=>{
-    console.log('Server ON'
-
-)})
+    console.log('Server ON')})

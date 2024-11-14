@@ -1,5 +1,3 @@
-import { create } from "json-server"
-
 const tourModel = {
     async getAllToursModel (){
         try {
@@ -11,22 +9,81 @@ const tourModel = {
         }
     }
     ,
-    createTourModel(newTour){
+async createTourModel(newTour){
 
-        // 1. CONEXION BDD
-        const url = 'http://localhost:4000/tours'
+    // 1. CONEXION BDD
+    const url = 'http://localhost:4000/tours'
 
-        // 2. ENVIAR DATA A LA BDD
-        const peticion = fetch(url,{
+    // 2. 
+
+    const peticion = await fetch(url,{
             method:"POST",
             body:JSON.stringify(newTour),
-            headers:{"Content-Type":"application/json"}
-        })
-        // 3. OBTENER RESPUESTA A LA BDD
-        const data = peticion.json()
+            headers:{"content.Type":"application/json"}
 
-        // 4. MANDAR LA RESPUESTA AL CONTROLADOR
-        return data
+    })
+    // 3. OBTENER RESPUESTA A LA BDD
+    const data = await peticion.json()
+
+    // 4. MANDAR LA RESPUESTA AL CONTROLADOR
+    return data
+    }
+    ,
+
+async updateTourModel(tourId,updatedTour){
+
+    // 1. CONEXION BDD
+    const url = `http://localhost:4000/tours/${tourId}`
+
+    //2. Envviar DAta ala bbd
+    const peticion = await fetch(url,{
+        method:"PUT",
+        body:JSON.stringify(updatedTour),
+        headers:{"content-Type":"application/json"}
+        })
+
+    // 3. OBTENER RESPUESTA A LA BDD
+    const data = await peticion.json()
+
+    // 4. MANDAR LA RESPUESTA AL CONTROLADOR
+    return data
+}
+,
+async updateTourModel(tourId,updatedTour){
+
+    // 1. CONEXION BDD
+    const url = `http://localhost:4000/tours/${tourId}`
+
+    //2. Envviar DAta ala bbd
+    const peticion = await fetch(url,{
+        method:"PUT",
+        body:JSON.stringify(updatedTour),
+        headers:{"content-Type":"application/json"}
+        })
+
+    // 3. OBTENER RESPUESTA A LA BDD
+    const data = await peticion.json()
+
+    // 4. MANDAR LA RESPUESTA AL CONTROLADOR
+    return data
+}
+,
+
+async deleteTourModel(tourId){
+
+    // 1. CONEXION BDD
+    const url = `http://localhost:4000/tours/${tourId}`
+
+    //2. Envviar DAta ala bbd
+    const peticion = await fetch(url,{
+        method:"DELETE",
+    })
+
+    // 3. OBTENER RESPUESTA A LA BDD
+    const data = await peticion.json()
+
+    // 4. MANDAR LA RESPUESTA AL CONTROLADOR
+    return data
     }
 
 }

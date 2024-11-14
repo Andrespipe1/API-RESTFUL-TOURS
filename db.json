@@ -1,13 +1,15 @@
 {
-    "tours":[
-        {
-            "id":1,
-            "nombre":"Baños"
-        },
-        {
-            "id":2,
-            "nombre":"Baños_de_agua"
-        }
-    ],
-    "users":[]
+  "tours": [
+    {
+      "id": "1",
+      "nombre": "Baños"
+    },
+    {
+      "id": "ccc9",
+      "name": "Tour-Cuenca",
+      "price": "100",
+      "status": "actve"
+    }
+  ],
+  "users": []
 }

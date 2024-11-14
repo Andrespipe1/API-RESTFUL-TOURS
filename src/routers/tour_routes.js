@@ -3,12 +3,16 @@ import { createTourController, deleteTourController, getAlltourController, updat
 
 const router = Router()
 
+//Pública 
 router.get('/tours',getAlltourController)
 
+router.put('/tours/:id',getAlltourController)
+
+//Privadas
 router.post('/tours',createTourController)
-
+//Privadas
 router.put('/tours/:id',updateTourController)
-
+//Privadas
 router.put('/tours/:id',deleteTourController)
 
 
